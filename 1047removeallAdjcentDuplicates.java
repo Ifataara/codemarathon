@@ -1,0 +1,22 @@
+class Solution {
+    public String removeDuplicates(String s) {
+
+        Deque<Character> stack = new ArrayDeque<>();
+        for(char c : s.toCharArray()){
+
+            if(!stack.isEmpty() && stack.peek() == c){
+                stack.pop();
+
+            }else {
+                stack.push(c);
+            }
+        }
+         // return to string using builder
+        StringBuilder sb = new StringBuilder();
+        while(!stack.isEmpty()){
+            sb.append(stack.pop());
+        }
+        return sb.reverse().toString();
+       
+    }
+}
